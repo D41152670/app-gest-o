@@ -21,12 +21,9 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/grid', function (){
-    return view('pggrid');
-});
-
-Route::get('/form', function (){
-    return view('pgform');
+Route::prefix('usuarios')->group(function(){
+    // Index grid usuários
+    Route::get('/', ['App\Http\Controllers\UsersGrid', 'index'])->name('list_users');
 });
 
 // Rota para fornecedores

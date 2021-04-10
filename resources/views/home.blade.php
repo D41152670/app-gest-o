@@ -13,8 +13,17 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
                     {{ __('You are logged in!') }}
+                    <p>Para limitar o acesso utilize { { Auth::user()->tipo_usuario_id } }:</p>
+                    <p>
+                        EX: <br>
+                        if(Auth::user()->tipo_usuario_id == 1): mostre x menu
+                    </p>
+                    <p>
+                        1 - Administrador <br>
+                        2 - Cliente  <br>
+                        3 - Fornecedor <br>
+                    </p>
                 </div>
             </div>
         </div>

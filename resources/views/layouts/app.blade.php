@@ -31,21 +31,7 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                        {{-- Caso esteja deslogado --}}
-                        @guest
-                            <li class="nav-item"><a href="" class="nav-link">teste deslogado</a></li>
-                            <li class="nav-item"><a href="" class="nav-link">teste deslogado</a></li>
-                            <li class="nav-item"><a href="" class="nav-link">teste deslogado</a></li>
-                            <li class="nav-item"><a href="" class="nav-link">teste deslogado</a></li>
-                        {{-- Caso esteja logado --}}
-                        @else
-                            <li class="nav-item"><a href="{{url('/unidades')}}" class="nav-link">Unidades</a></li>
-                            <li class="nav-item"><a href="{{url('/fornecedores')}}" class="nav-link">Fornecedores</a></li>
-                            <li class="nav-item"><a href="{{url('/produtos')}}" class="nav-link">Produtos</a></li>
-                        @endguest
-                    </ul>
+                    @include('parts.header.menuPrincipal')
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">

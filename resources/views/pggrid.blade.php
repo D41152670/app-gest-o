@@ -14,6 +14,8 @@
                             <a href="{{route( 'unidade_create')}}" class="btn btn-outline-secondary">Add new</a>
                             @elseif(\Request::route()->getName() == 'produtos')
                                 <a href="{{route( 'produtos_create')}}" class="btn btn-outline-secondary">Add new</a>
+                            @elseif(\Request::route()->getName() == 'list_users')
+                                <a href="{{ route('register') }}" class="btn btn-outline-secondary">Add new</a>
                             @endif
                         </div>
                     </div>
@@ -25,6 +27,8 @@
                             @include('parts.grid.gridUnidade')
                         @elseif(\Request::route()->getName() == 'produtos')
                             @include('parts.grid.gridProdutos')
+                        @elseif(\Request::route()->getName() == 'list_users')
+                            @include('parts.grid.gridUsers')
                         @else
                             Default
                         @endif
