@@ -62,8 +62,8 @@ class FornecedoresController extends Controller
         $fornecedor->uf = $request->uf;
         $fornecedor->email = $request->email;
         $fornecedor->save();
-//        Redirector::route('fornecedores', ['titulo', $title]);
-        return redirect()->route('fornecedores')->with('message', 'sucesso');
+        //
+        return redirect()->route('create')->with('message', 'sucesso');
     }
 
     /**
@@ -105,7 +105,19 @@ class FornecedoresController extends Controller
      */
     public function update(Request $request, Fornecedores $fornecedores)
     {
+        $idFornecedor = $request->id;
+        var_dump($idFornecedor);
         //
+        DB::table('fornecedores')->where('id', $idFornecedor)->update(
+            [
+                'nome' => $request->nome,
+                'site' => $request->site,
+                'uf' => $request->uf,
+                'email' =>$request->email
+            ]
+        );
+        //
+        return redirect('/fornecedores/edit/'.$idFornecedor)->with('message', 'Atualizado com sucesso');
     }
 
     /**
@@ -114,8 +126,11 @@ class FornecedoresController extends Controller
      * @param  \App\Models\Fornecedores  $fornecedores
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Fornecedores $fornecedores)
+    public function destroy(Fornecedores $fornecedores, $id)
     {
         //
+        $fornecedorGrid = DB::table('fornecedores')->delete($id);
+
+        return redirect()->route('fornecedores')->with('message_delete', 'Usuário deletado');
     }
 }

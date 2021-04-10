@@ -9,10 +9,12 @@
         @csrf
         <div class="form-group col-md-6">
             <input type="text" name="nome" class="form-control" placeholder="Nome" value="@if(isset($dataFornecedor[0])){{$dataFornecedor[0]->nome}}@endif">
+
+
+            @if(isset($dataFornecedor[0]->id))
+                <input type="hidden" name="id" value="{{$dataFornecedor[0]->id}}">
+            @endif
         </div>
-        @if(isset($dataFornecedor[0]->id))
-            <input type="hidden" name="id" value="{{$dataFornecedor[0]->id}}">
-        @endif
         <div class="form-group col-md-6">
             <input type="text" name="site" class="form-control" placeholder="Site" value="@if(isset($dataFornecedor[0])){{$dataFornecedor[0]->site}}@endif">
         </div>

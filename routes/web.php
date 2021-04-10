@@ -29,6 +29,7 @@ Route::get('/form', function (){
     return view('pgform');
 });
 
+// Rota para fornecedores
 Route::prefix('fornecedores')->group(function (){
     // index CURD = Create, Update, Read, Destroy
     Route::get('/', ['App\Http\Controllers\FornecedoresController', 'index'])->name('fornecedores');
@@ -39,11 +40,23 @@ Route::prefix('fornecedores')->group(function (){
     // edit form
     Route::get('/edit/{id}', ['App\Http\Controllers\FornecedoresController', 'edit'])->name('edit');
     // update form
-    Route::get('/update', ['App\Http\Controllers\FornecedoresController', 'update'])->name('update');
+    Route::post('/update', ['App\Http\Controllers\FornecedoresController', 'update'])->name('update');
     // destroy
-    Route::get('/destroy', ['App\Http\Controllers\FornecedoresController', 'destroy']);
-    // show grid
-    Route::get('/fornecedores', ['App\Http\Controllers\FornecedoresController', 'show']);
+    Route::get('/destroy/{id}', ['App\Http\Controllers\FornecedoresController', 'destroy']);
 });
 
-
+// Rota para unidades
+Route::prefix('unidades')->group(function (){
+    // index CURD = Create, Update, Read, Destroy
+    Route::get('/', ['App\Http\Controllers\FornecedoresController', 'index'])->name('unidade');
+    // create show the form
+    Route::get('/create', ['App\Http\Controllers\FornecedoresController', 'create'])->name('unidade_create');
+    // add
+    Route::post('/store', ['App\Http\Controllers\FornecedoresController', 'store']);
+    // edit form
+    Route::get('/edit/{id}', ['App\Http\Controllers\FornecedoresController', 'edit'])->name('unidade_edit');
+    // update form
+    Route::get('/update', ['App\Http\Controllers\FornecedoresController', 'update'])->name('unidade_update');
+    // destroy
+    Route::get('/destroy/{id}', ['App\Http\Controllers\FornecedoresController', 'destroy']);
+});
