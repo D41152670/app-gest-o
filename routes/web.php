@@ -60,3 +60,19 @@ Route::prefix('unidades')->group(function (){
     // destroy
     Route::get('/destroy/{id}', ['App\Http\Controllers\UnidadesController', 'destroy']);
 });
+
+// Rota para Produtos
+Route::prefix('produtos')->group(function (){
+    // index CURD = Create, Update, Read, Destroy
+    Route::get('/', ['App\Http\Controllers\ProdutosController', 'index'])->name('produtos');
+    // create show the form
+    Route::get('/create', ['App\Http\Controllers\ProdutosController', 'create'])->name('produtos_create');
+    // add
+    Route::post('/store', ['App\Http\Controllers\ProdutosController', 'store']);
+    // edit form
+    Route::get('/edit/{id}', ['App\Http\Controllers\ProdutosController', 'edit'])->name('produtos_edit');
+    // update form
+    Route::post('/update', ['App\Http\Controllers\ProdutosController', 'update'])->name('produtos_update');
+    // destroy
+    Route::get('/destroy/{id}', ['App\Http\Controllers\ProdutosController', 'destroy']);
+});

@@ -11,6 +11,7 @@
 
                     <div class="card-body">
                         {{\Request::route()->getName()}}
+                        <!-- Define os forulários -->
                         @if(\Request::route()->getName() == 'create')
                             @include('parts.form.formFornecedores')
                         @elseif(\Request::route()->getName() == 'edit')
@@ -19,6 +20,10 @@
                             @include('parts.form.formUnidades')
                         @elseif(\Request::route()->getName() == 'unidade_edit')
                             @include('parts.form.formUnidades')
+                        @elseif(\Request::route()->getName() == 'produtos_create')
+                            @include('parts.form.formProdutos')
+                        @elseif(\Request::route()->getName() == 'produtos_edit')
+                            @include('parts.form.formProdutos')
                         @else
                             default
                         @endif

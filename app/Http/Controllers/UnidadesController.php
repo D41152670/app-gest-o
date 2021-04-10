@@ -126,7 +126,6 @@ class UnidadesController extends Controller
     public function destroy(Unidades $unidades, $id)
     {
         //
-        //
         $fornecedorGrid = DB::table('unidades')->delete($id);
 
         return redirect()->route('unidade')->with('message_delete', 'Unidade deletado');
