@@ -42,7 +42,7 @@
                         {{-- Caso esteja logado --}}
                         @else
                             <li class="nav-item"><a href="{{url('/grid')}}" class="nav-link">Grid</a></li>
-                            <li class="nav-item"><a href="{{url('/form')}}" class="nav-link">Form</a></li>
+                            <li class="nav-item"><a href="{{url('/unidades')}}" class="nav-link">Unidades</a></li>
                             <li class="nav-item"><a href="{{url('/fornecedores')}}" class="nav-link">Fornecedores</a></li>
                         @endguest
                     </ul>

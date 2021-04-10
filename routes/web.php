@@ -48,15 +48,15 @@ Route::prefix('fornecedores')->group(function (){
 // Rota para unidades
 Route::prefix('unidades')->group(function (){
     // index CURD = Create, Update, Read, Destroy
-    Route::get('/', ['App\Http\Controllers\FornecedoresController', 'index'])->name('unidade');
+    Route::get('/', ['App\Http\Controllers\UnidadesController', 'index'])->name('unidade');
     // create show the form
-    Route::get('/create', ['App\Http\Controllers\FornecedoresController', 'create'])->name('unidade_create');
+    Route::get('/create', ['App\Http\Controllers\UnidadesController', 'create'])->name('unidade_create');
     // add
-    Route::post('/store', ['App\Http\Controllers\FornecedoresController', 'store']);
+    Route::post('/store', ['App\Http\Controllers\UnidadesController', 'store']);
     // edit form
-    Route::get('/edit/{id}', ['App\Http\Controllers\FornecedoresController', 'edit'])->name('unidade_edit');
+    Route::get('/edit/{id}', ['App\Http\Controllers\UnidadesController', 'edit'])->name('unidade_edit');
     // update form
-    Route::get('/update', ['App\Http\Controllers\FornecedoresController', 'update'])->name('unidade_update');
+    Route::post('/update', ['App\Http\Controllers\UnidadesController', 'update'])->name('unidade_update');
     // destroy
-    Route::get('/destroy/{id}', ['App\Http\Controllers\FornecedoresController', 'destroy']);
+    Route::get('/destroy/{id}', ['App\Http\Controllers\UnidadesController', 'destroy']);
 });

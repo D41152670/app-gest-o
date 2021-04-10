@@ -8,14 +8,13 @@
     </tr>
     </thead>
     <tbody>
-{{--    @dd($listFornecedores)--}}
-
+    @foreach($listRow as $list)
     <tr>
-        <td></td>
-        <td></td>
-        <td><a href="" class="btn btn-outline-info">Edit</a></td>
-        <td><a href="" class="btn btn-outline-danger">Excluir</a></td>
+        <td>{{$list->unidade}}</td>
+        <td>{{$list->descricao}}</td>
+        <td><a href="{{url('unidades/edit/')}}/{{$list->id}}" class="btn btn-outline-info">Edit</a></td>
+        <td><a href="{{url('unidades/destroy')}}/{{$list->id}}" class="btn btn-outline-danger">Excluir</a></td>
     </tr>
-
+    @endforeach
     </tbody>
 </table>
