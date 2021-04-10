@@ -64,6 +64,11 @@
                                 @endif
                             </div>
                         </div>
+
+                        <div class="">
+                            <a href="{{url('/login/facebook')}}" class="btn btn-outline-info">Facebook</a>
+                            <a href="{{url('/login/google')}}" class="btn-outline-info  btn">Google</a>
+                        </div>
                     </form>
                 </div>
             </div>

@@ -17,6 +17,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+########################
+###### SOCIALITE ########
+########################
+// Make Login
+Route::get('login/{provider}', ['App\Http\Controllers\SocialController', 'redirect']);
+// Make redirection
+Route::get('login/{provider}/callback',['App\Http\Controllers\SocialController', 'Callback']);
+########################
+###### /SOCIALITE ########
+########################
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
