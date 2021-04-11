@@ -138,4 +138,19 @@ class PedidosController extends Controller
             ->setOptions(['defaultFont' => 'sans-serif'])
             ->download('lista_de_pedidos.pdf');
     }
+
+    public function genGrafico()
+    {
+        $listData = DB::table('pedidos_produtos')
+            ->join('produtos', 'produtos.id', '=', 'pedidos_produtos.produto_id')
+            ->groupBy('produto_id')
+            ->select( DB::raw('count(pedidos_produtos.produto_id) as qtd'), 'produtos.nome')
+            ->get();
+
+        foreach($listData as $data){
+            $produto['nome'][] = $data->nome;
+            $produto['qtd'][] = $data->qtd;
+        }
+        return view('pgRelatorio', ['label' => $produto['nome'], 'qtd' =>  $produto['qtd']]);
+    }
 }

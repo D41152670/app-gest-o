@@ -39,11 +39,9 @@ Route::prefix('usuarios')->group(function(){
 });
 
 // Relatorio
-Route::get('/relatorio', function (){
-    return view('pgRelatorio');
-});
+Route::get('/relatorio', ['App\Http\Controllers\PedidosController', 'genGrafico']);
 
-Route::get('relatorio/json', ['App\Charts\ProdutosMaisVendidos', 'dataResponse']);
+//Route::get('relatorio/json', ['App\Charts\ProdutosMaisVendidos', 'dataResponse']);
 
 // Rota para fornecedores
 Route::prefix('fornecedores')->group(function (){
