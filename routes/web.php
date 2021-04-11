@@ -107,4 +107,6 @@ Route::prefix('pedidos')->group(function (){
     Route::post('/update', ['App\Http\Controllers\PedidosController', 'update'])->name('pedidos_update');
     // destroy
     Route::get('/destroy/{id}', ['App\Http\Controllers\PedidosController', 'destroy']);
+    // gen the PDF of pedidos
+    Route::get('pdf', ['App\Http\Controllers\PedidosController', 'genPdf'])->name('pdf');
 });

@@ -123,4 +123,19 @@ class PedidosController extends Controller
         $fornecedorGrid = DB::table('pedidos')->delete($id);
         return redirect()->route('pedidos')->with('message_delete', 'Unidade deletado');
     }
+
+    public function genPdf()
+    {
+        $listRow = DB::table('pedidos_produtos')
+            ->join('pedidos', 'pedidos_produtos.pedido_id','=', 'pedidos.id')
+            ->join('fornecedores', 'pedidos_produtos.fornecedor_id', '=', 'fornecedores.id')
+            ->join('produtos', 'pedidos_produtos.produto_id', '=', 'produtos.id')
+            ->select('pedidos.codigo_pedido', 'pedidos.valor', 'produtos.nome as produto', 'fornecedores.nome as fornecedor', 'pedidos.id')
+            ->get();
+        // parts.grid.gridPedido Caso queira pegar apenas a lista de pedidos
+        return \PDF::loadView('parts.grid.pedidosPdf ', compact('listRow'))
+            // Se quiser que fique no formato a4 retrato: ->setPaper('a4', 'landscape')
+            ->setOptions(['defaultFont' => 'sans-serif'])
+            ->download('lista_de_pedidos.pdf');
+    }
 }
