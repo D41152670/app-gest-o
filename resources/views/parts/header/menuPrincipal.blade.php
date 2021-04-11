@@ -12,7 +12,9 @@
             <li class="nav-item"><a href="{{url('/unidades')}}" class="nav-link">Unidades</a></li>
             <li class="nav-item"><a href="{{url('/fornecedores')}}" class="nav-link">Fornecedores</a></li>
             <li class="nav-item"><a href="{{url('/produtos')}}" class="nav-link">Produtos</a></li>
+            <li class="nav-item"><a href="{{url('/pedidos')}}" class="nav-link">Pedidos</a></li>
             <li class="nav-item"><a href="{{url('/usuarios')}}" class="nav-link">Usuários</a></li>
+            <li class="nav-item"><a href="{{url('/relatorio')}}" class="nav-link">Relatorio</a></li>
         @elseif(Auth::user()->tipo_usuario_id == 2)
             <li class="nav-item"><a href="{{url('/produtos')}}" class="nav-link">Produtos</a></li>
         @elseif(Auth::user()->tipo_usuario_id == 3)

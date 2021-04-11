@@ -38,6 +38,13 @@ Route::prefix('usuarios')->group(function(){
     Route::get('/', ['App\Http\Controllers\UsersGrid', 'index'])->name('list_users');
 });
 
+// Relatorio
+Route::get('/relatorio', function (){
+    return view('pgRelatorio');
+});
+
+Route::get('relatorio/json', ['App\Charts\ProdutosMaisVendidos', 'dataResponse']);
+
 // Rota para fornecedores
 Route::prefix('fornecedores')->group(function (){
     // index CURD = Create, Update, Read, Destroy
@@ -84,4 +91,20 @@ Route::prefix('produtos')->group(function (){
     Route::post('/update', ['App\Http\Controllers\ProdutosController', 'update'])->name('produtos_update');
     // destroy
     Route::get('/destroy/{id}', ['App\Http\Controllers\ProdutosController', 'destroy']);
+});
+
+// Rota para pedidos
+Route::prefix('pedidos')->group(function (){
+    // index CURD = Create, Update, Read, Destroy
+    Route::get('/', ['App\Http\Controllers\PedidosController', 'index'])->name('pedidos');
+    // create show the form
+    Route::get('/create', ['App\Http\Controllers\PedidosController', 'create'])->name('pedidos_create');
+    // add
+    Route::post('/store', ['App\Http\Controllers\PedidosController', 'store']);
+    // edit form
+    Route::get('/edit/{id}', ['App\Http\Controllers\PedidosController', 'edit'])->name('pedidos_edit');
+    // update form
+    Route::post('/update', ['App\Http\Controllers\PedidosController', 'update'])->name('pedidos_update');
+    // destroy
+    Route::get('/destroy/{id}', ['App\Http\Controllers\PedidosController', 'destroy']);
 });

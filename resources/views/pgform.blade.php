@@ -24,6 +24,10 @@
                             @include('parts.form.formProdutos')
                         @elseif(\Request::route()->getName() == 'produtos_edit')
                             @include('parts.form.formProdutos')
+                        @elseif(\Request::route()->getName() == 'pedidos_create')
+                            @include('parts.form.formPedidos')
+                        @elseif(\Request::route()->getName() == 'pedidos_edit')
+                            @include('parts.form.formPedidos')
                         @else
                             default
                         @endif

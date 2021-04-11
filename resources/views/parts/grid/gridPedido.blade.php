@@ -7,23 +7,21 @@
     <thead>
     <tr>
         <th>Codigo</th>
-        <th>E-mail</th>
-        <th>UF</th>
-        <th>Site</th>
-        <th></th>
-        <th></th>
+        <th>Valor</th>
+        <th>Fornecedor</th>
+        <th>Produto</th>
+        <th width="20"></th>
     </tr>
     </thead>
     <tbody>
-{{--    @dd($listFornecedores)--}}
-    @foreach( $listFornecedores as $fornecedores )
+{{--    @dd($listRow)--}}
+    @foreach( $listRow as $list )
     <tr>
-        <td>{{ $fornecedores->nome }}</td>
-        <td>{{ $fornecedores->email }}</td>
-        <td>{{ $fornecedores->uf }}</td>
-        <td>{{ $fornecedores->site }}</td>
-        <td><a href="{{url('fornecedores/edit/')}}/{{$fornecedores->id}}" class="btn btn-outline-info">Edit</a></td>
-        <td><a href="{{url('fornecedores/destroy')}}/{{$fornecedores->id}}" class="btn btn-outline-danger">Excluir</a></td>
+        <td>{{ $list->codigo_pedido }}</td>
+        <td>{{ $list->valor }}</td>
+        <td> {{$list->fornecedor}} </td>
+        <td> {{$list->produto}} </td>
+        <td><a href="{{url('pedidos/destroy')}}/{{$list->id}}" class="btn btn-outline-danger">Excluir</a></td>
     </tr>
     @endforeach
     </tbody>
