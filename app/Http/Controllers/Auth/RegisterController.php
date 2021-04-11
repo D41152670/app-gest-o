@@ -8,6 +8,8 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Laravel\Socialite\Facades\Socialite;
+use phpDocumentor\Reflection\Types\Null_;
 
 class RegisterController extends Controller
 {
@@ -38,7 +40,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('guest');
     }
 
     /**
@@ -64,12 +66,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        var_dump($data['tipo_usuário_id']);
+//        $userSocial =   Socialite::driver($provider)->stateless()->user();
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'tipo_usuario_id'   => $data['tipo_usuário_id']
+            'tipo_usuario_id'   => $data['tipo_usuário_id'],
+            'provider_id'   => NULL,
+            'provider'      => NULL,
         ]);
     }
 }
